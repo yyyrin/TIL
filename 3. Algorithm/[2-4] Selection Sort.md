@@ -14,7 +14,7 @@
         - 원본 데이터 배열과 별개로, 배열 인덱스를 추가한 예
         - 원본 데이터에 데이터가 삽입될 경우 상대적으로 크기가 작은 인덱스 배열을 정렬하기 때문에 속도가 빠르다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93691437-1681-4756-8ef1-19f19464bad4/Untitled.png)
+        ![인덱스 예시](./images/index.png)
 <br><br>        
     
 2. **선택 정렬(Selection Sort)**
@@ -32,35 +32,35 @@
 3. 선택 정렬 과정 예시
     - 주어진 리스트에서 최소값을 찾는다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4a9ca652-8c29-40a9-b7a1-10c9dfce553b/Untitled.png)
+        ![선택 정렬1](./images/selection1.png)
         
     - 리스트의 맨 앞에 위치한 값과 교환한다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2eb8ae18-7340-40ed-afe7-4a8962df8cc5/Untitled.png)
+        ![선택 정렬2](./images/selection2.png)
         
     - 미정렬 리스트에서 최소값을 찾는다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b522563-9c90-45f6-9785-8065bac461c2/Untitled.png)
+        ![선택 정렬3](./images/selection3.png)
         
     - 리스트의 맨 앞에 위치한 값과 교환한다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93fef535-be25-4ea2-88f5-264b95813b7c/Untitled.png)
+        ![선택 정렬4](./images/selection4.png)
         
     - 미정렬 리스트에서 최소값을 찾는다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2753bd77-00db-4921-90ce-406b9c151539/Untitled.png)
+        ![선택 정렬5](./images/selection5.png)
         
     - 리스트의 맨 앞에 위치한 값과 교환한다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c035c549-38ff-4b1c-85c5-141bb3c5a588/Untitled.png)
+        ![선택 정렬6](./images/selection6.png)
         
     - 미정렬 리스트에서 최소값을 찾는다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a4d3675b-b6cb-49b6-a1a0-6169a9056b96/Untitled.png)
+        ![선택 정렬7](./images/selection7.png)
         
     - 리스트의 맨 앞에 위치한 값과 교환한다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9355bada-cfd5-498b-b7a8-6d1bce93b01e/Untitled.png)
+        ![선택 정렬8](./images/selection8.png)
         
     - 미정렬 원소가 하나 남은 상황에서는 마지막 원소가  가장 큰 값을 갖게 되므로, 실행을 종료하고 선택 정렬이 완료된다.
 <br><br>
