@@ -41,12 +41,12 @@
         - 그래서 유니코드의 적당한 외부 인코딩이 필요!
 <br><br>
 
-5. big-endian, little-endian
+5. **big-endian, little-endian**
     
     ![유니코드](./images/endian.png)
 <br><br>
 
-6. 유니코드 인코딩 (UTF: Unicode Transformation Format)
+6. **유니코드 인코딩 (UTF: Unicode Transformation Format)**
     - **UTF-8** (in web)
         - MIN: 8bit, MAX:  32bit(1 Byte * 4)
         - ASCII(7bit)와 1대 1로 사용 가능
@@ -56,7 +56,7 @@
         - MIN: 32bit, MAX: 32ibt(4 Byte * 1)
 <br><br>
 
-7. Python 인코딩
+7. **Python 인코딩**
     - 2.x 버전 - ASCII → #-*-coding: utf-8-*- (첫 줄에 명시)
     - 3.x 버전 - 유니코드 UTF-8 → 생략 가능
     - CP-949 : windows에서 사용하는 인코딩 방식
