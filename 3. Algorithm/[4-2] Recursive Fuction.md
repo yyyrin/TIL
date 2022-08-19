@@ -20,11 +20,13 @@
     - factorial 함수에서 n=4인 경우의 실행
         
         ![피보나치 수열 call tree img](./images/fibonacci%20sequence.png)
-<br><br>        
+<br><br><br>     
 
 - **피보나치 수열**
-    - 0과 1로 시작하고 이전의 두 수 합을 다음 항으로 하는 수열
+    - 0과 1로 시작하고 이전의 두 수 합을 다음 항으로 하는 수열<br>
+
         - 0, 1, 1, 2, 3, 5, 8, 13, …
+
     - 피보나치 수열의 i번 째 값을 계산하는 함수 F의 정의
         - F0 = 0, F1 = 1
         - Fi = F(i-1) + F(i-2) for i ≥ 2
@@ -38,7 +40,7 @@
             else:
                 return fibo(n-1) + fibo(n-2)
         ```
-<br>        
+<br><br>        
 
 ---
 
