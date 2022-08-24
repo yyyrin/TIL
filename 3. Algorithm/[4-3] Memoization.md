@@ -6,7 +6,7 @@
     ![fibonacci call tree img](./images/fibonacci%20call%20tree.png)
 <br><br><br>    
 
-1. Memoization
+1. **Memoization**
     - 컴퓨터 프로그램을 실행할 때 이전에 계산한 값을 메모리에 저장해서 매번 다시 계산하지 않도록 하여 전체적인 실행속도를 빠르게 하는 기술<br>
 
     - 동적 계획법의 핵심이 되는 기술
@@ -15,7 +15,7 @@
     - 흔히 ‘기억하기’, ‘암기하기’라는 뜻의 memorizaiton과 혼동하지만, 정확한 단어는 memoization (동사형: memoize)
 <br><br><br>
 
-2. Memoization 적용 알고리즘
+2. **Memoization 적용 알고리즘**
     - 앞의 예에서 피보나치 수를 구하는 알고리즘에서 fibo(n)의 값을 계산하자마자 저장하면(memoize), 실행시간을 O(n)으로 줄일 수 있음<br><br>
 
     
