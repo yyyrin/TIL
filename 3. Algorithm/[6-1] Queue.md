@@ -73,6 +73,78 @@
     - 원소 반환/삭제: `deQueue();`
         
         ![deQueue() img](./images/deQueue3.png)
-<br><br><br>        
+<br><br><br> 
+
+6. **실습**
+    
+    ```python
+    N = 3
+    q = [0]* N
+    front = -1
+    rear = -1
+    
+    # 1) enQueue
+    rear += 1      # enQueue(10)
+    q[rear] = 10
+    
+    rear += 1      # enQueue(20)
+    q[rear] = 20
+    
+    rear += 1      # enQueue(30)
+    q[rear] = 30
+    
+    # 2) deQueue
+    front += 1      # deQueue()     
+    print(q[front]) # 10
+    
+    # -------------
+    ## 순환 큐
+    
+    N = 3
+    q = [0]* N
+    front = 0
+    rear = 0
+    
+    # 1) enQueue
+    rear = (rear + 1) % N      # enQueue(10)
+    q[rear] = 10
+    
+    rear = (rear + 1) % N      # enQueue(20)
+    q[rear] = 20
+    
+    rear = (rear + 1) % N      # enQueue(30)
+    q[rear] = 30
+    
+    rear = (rear + 1) % N      # enQueue(40)
+    q[rear] = 40
+    
+    # 2) deQueue
+    front = (front + 1) % N          
+    print(q[front])             # 40
+    
+    front = (front + 1) % N         
+    print(q[front])             # 20
+    
+    front = (front + 1) % N     
+    print(q[front])             # 30
+    ```
+    
+    ```python
+    # append와 pop을 사용했을 때, 느려지는 문제를 해결하기 위한 방법
+    # 주의) 코테 때 사용하면 감점될 수 있음
+    
+    from collections import deque
+    
+    q = deque()
+    
+    q.append(10)
+    q.append(20)
+    q.append(30)
+    
+    print(q.popleft())
+    print(q.popleft())
+    print(q.popleft())
+    ```
+<br><br>
 
 ---
