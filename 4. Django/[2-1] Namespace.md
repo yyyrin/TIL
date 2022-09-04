@@ -56,6 +56,7 @@
     - \2) pages app의 index url (http://127.0.0.1:8000/pages/index/)로 직접 이동해도 articles app의 index 페이지가 출력됨
       - Template namespace
 <br><br><br>
+---
 
 ### **1. URL namespace**
 
@@ -140,6 +141,7 @@
 
         - 예를 들어, app_name이 articles이고 URL name이 index인 주소 참조는 **articles:index**가 됨
 <br><br><br>
+---
 
 ### **2. Template namespace**
 
