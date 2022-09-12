@@ -1,4 +1,4 @@
-# Django Form
+# **Django Form**
 
 1. 개요
     - 우리는 지금까지 HTML form, input 태그를 통해서 사용자로부터 데이터를 받았음<br>
@@ -161,7 +161,7 @@
     ```
     
     - 출력 결과 확인하기<br>
-    
+
     - 다양한 built-in 위젯
         
         [https://docs.djangoproject.com/ko/3.2/ref/forms/widgets/#built-in-widgets](https://docs.djangoproject.com/ko/3.2/ref/forms/widgets/#built-in-widgets)
