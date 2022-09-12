@@ -86,7 +86,7 @@
         - 사진 데이터에 대한 데이터==사진의 Meta data)
 <br><br><br>
 
-6. [참조] 참조 값과 반환 값
+6. \[참조] 참조 값과 반환 값
     - 호출하지 않고 이름만 작성하는 이 방식은 어떤 의미일까<br>
 
         
@@ -200,7 +200,7 @@
         
     - title에 공백을 넣고 제출해보기
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9e297b0c-2821-464b-a9f0-990c7f1d758b/Untitled.png)
+        ![error img](./images/error.png)
         
     - 이 같은 특징을 통해 다음과 같은 구조로 코드를 작성하면 유효성 검증을 실패했을 때 사용자에게 실패 결과 메세지를 출력해줄 수 있음
         
@@ -221,9 +221,11 @@
 
     
 5. The “save()” method
-    - form 인스턴스에 바인딩 된 데이터를 통해 데이터베이스 객체를 만들고 저장
+    - form 인스턴스에 바인딩 된 데이터를 통해 데이터베이스 객체를 만들고 저장<br>
+
     - ModelForm의 하위 클래스는 키워드 인자 instance 여부를 통해 생성할지, 수정할지를 결정함
-        - 제공되지 않은 경우 save()는 지정된 모델의 새 인스턴스를 만듦(CREATE)
+        - 제공되지 않은 경우 save()는 지정된 모델의 새 인스턴스를 만듦(CREATE)<br>
+
         - 제공되면 save()는 해당 인스턴스를 수정(UPDATE)
     
     ```python
@@ -238,7 +240,8 @@
 <br><br>
 
 6. UPDATE
-    - ModelForm의 인자 instance는 수정 대상이 되는 객체(기존 객체)를 지정
+    - ModelForm의 인자 instance는 수정 대상이 되는 객체(기존 객체)를 지정<br>
+
         - `request.POST`
             - 사용자가 form을 통해 전송한 데이터 (새로운 데이터)
         - `instance`
@@ -297,7 +300,7 @@
 <br><br>
 
     
-7. [참고] ModelForm 키워드 인자 data와 instance 살펴보기
+7. \[참고] ModelForm 키워드 인자 data와 instance 살펴보기
     - [https://github.com/django/django/blob/7bdd09d016f418719f2d0297f58bd81c5349101d/django/forms/models.py#L286](https://github.com/django/django/blob/7bdd09d016f418719f2d0297f58bd81c5349101d/django/forms/models.py#L286)
     
     ```python
@@ -308,9 +311,11 @@
 <br><br>
 
 8. Form과 ModelForm
-    - ModelForm이 Form보다 더 좋은 것이 아니라 각자 역할이 다른 것
+    - ModelForm이 Form보다 더 좋은 것이 아니라 각자 역할이 다른 것<br>
+
     - **Form**
-        - 사용자로부터 받은 데이터가 DB와 연관되어 있지 않는 경우에 사용
+        - 사용자로부터 받은 데이터가 DB와 연관되어 있지 않는 경우에 사용<br>
+        
         - DB에 영향을 미치지 않고 단순 데이터만 사용되는 경우
             - 예시 - 로그인, 사용자의 데이터를 받아 인증 과정에서만 사용 후 별도로 DB에 저장하지 않음
     - **ModelForm**
