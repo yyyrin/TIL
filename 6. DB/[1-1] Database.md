@@ -73,7 +73,7 @@
 
 2. [참고] 테이블간 관계 설정 예시
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3195dde9-62f0-43e6-afa1-c94891c312b2/Untitled.png)
+    ![table relationship example](./images/table_relationship.png)
     
     - 고객 테이블에서 고객 ID는 고객이 관계형 데이터베이스에서 고유하게 식별되는 기본 키(primary key)<br>
 
@@ -112,7 +112,7 @@
 
     - 관계(Relation)라고도 부름
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2799f235-bffe-4eb8-9aec-0fd16552fcf6/Untitled.png)
+    ![table img](./images/table.png)
     
     - 필드(field)
         - 속성, 컬럼(Column)
@@ -128,7 +128,7 @@
 
 7. PK(Primary Key)
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb892941-7726-4d4c-8b7e-5307fe5daea5/Untitled.png)
+    ![primary key img](./images/primary_key.png)
     
     - 기본 키<br>
 
@@ -168,7 +168,7 @@
 
 12. SQLite를 학습하는 이유
     - 어떤 환경에서나 실행 가능한 호환성<br>
-    
+
     - 데이터 타입이 비교적 적고 강하지 않기 때문에 유연한 학습 환경을 제공
     - Django Framework의 기본 데이터베이스
 <br><br><br>
