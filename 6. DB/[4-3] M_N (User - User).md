@@ -105,7 +105,7 @@
 
 ---
 
-## 2**. Follow**
+## **2. Follow**
 
 1. 모델 관계 설정
     - ManyToManyField 작성 및 Migration 진행

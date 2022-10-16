@@ -6,7 +6,7 @@
 
 ---
 
-### **1. Like**
+## **1. Like**
 
 1. 모델 관계 설정
     - ManyToManyField 작성<br>
