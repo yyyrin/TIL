@@ -1,4 +1,4 @@
-## **3. Django REST framework - Single Model**
+# **Django REST framework - Single Model**
 
 1. 개요
     - 단일 모델의 data를 Serialization하여 JSON으로 변환하는 방법에 대한 학습
