@@ -38,8 +38,10 @@
         - this의 값은 **함수를 호출한 방법에 의해 결정**됨
 
         - 함수 내부에서 this의 값은 함수를 호출한 방법에 의해 좌우됨
-    
+    <br><br>
+
     - (1) **단순 호출**
+
         - 전역 객체를 가리킴
         - 전역은 브라우저에서는 window, Node.js는 global을 의미함
             
@@ -54,9 +56,10 @@
             // Node.js
             myFunc()  // global
             ```
-            
+       <br>      
     
-    - 2) Method (Function in Object, 객체의 메서드로서)
+    - (2) Method (Function in Object, 객체의 메서드로서)
+
         - 메서드로 선언하고 호출한다면, 객체의 메서드이므로 해당 객체가 바인딩
             
             ```jsx
@@ -70,10 +73,12 @@
             
             myObj.myFunc()  // myObj
             ```
-            
+        <br>     
     
-    - 3) Nested (Function 키워드)
+    - (3) Nested (Function 키워드)
+
         - forEach의 콜백 함수에서의 this가 메서드의 객체를 가리키지 못하고 전역 객체 window를 가리킴
+
         - 단순 호출 방식으로 사용되었기 때문
         - 이를 해결하기 위해 등장한 함수 표현식이 바로 “화살표 함수”
             
@@ -91,10 +96,11 @@
             
             myObj.myFunc()
             ```
-            
+           <br>  
     
-    - 3) Nested (화살표 함수)
+    - (3) Nested (화살표 함수)
         - 이전에 일반 function 키워드와 달리 메서드의 객체를 잘 가리킴
+
         - 화살표 함수에서 this는 자신을 감싼 정적 범위
         - 자동으로 한 단계 상위의 scope의 context를 바인딩
             
@@ -116,20 +122,24 @@
     
 5. 화살표 함수
     - 화살표 함수는 호출의 위치와 상관없이 상위 스코프를 가리킴 (Lexical scope this)
+
     - `Lexical scope`
         - 함수를 어디서 호출하는지가 아니라 **어디에 선언**하였는지에 따라 결정
+
         - Static scope 라고도하며 대부분의 프로그래밍 언어에서 따르는 방식
     - 따라서 함수 내의 함수 상황에서 화살표 함수를 쓰는 것을 권장
 <br><br><br>
 
 6. this와 addEventListener
     - 하지만…
+
         - addEventListener에서의 콜백 함수는 특별하게 function 키워드의 경우
+
         - addEventListener를 호출한 대상을 ( event.target ) 뜻함
     - 반면 화살표 함수의 경우 상위 스코프를 지칭하기 때문에 window 객체가 바인딩 됨
     - 결론
         - “addEventListener의 콜백 함수는 function 키워드를 사용하기”
-    
+     <br><br>
     ```jsx
     <body>
       <button id="function">function</button>
@@ -153,7 +163,9 @@
 
 7. 정리
     - this가 호출되는 순간에 결정되는 것 (런타임) 장점/단점
+
         - 장점 : 함수(메서드)를 하나만 만들어서 여러 객체에서 재사용할 수 있다.
+        
         - 단점 : 이런 유연함이 실수로 이어질 수 있다.
         - JavaScript에서 this가 좋은지 나쁜지는 우리가 판단하는 게 중요한 것이 아니다.
         - this의 동작원리를 이해하고 장점을 취하고 실수를 줄여나가는 것이 중요!!
