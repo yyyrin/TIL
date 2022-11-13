@@ -2,18 +2,25 @@
 
 - AJAX란?
     - 비동기 통신을 이용하면 화면 전체를 새로고침 하지 않아도 서버로 요청을 보내고, 데이터를 받아 화면의 일부분만 업데이트 가능
+
     - 이러한 ‘비동기 통신 웹 개발 기술’을 Asynchronous Javascript And XML(AJAX)라 함
     - **AJAX의 특징**
-        - 1) 페이지 새로고침 없이 서버에 요청
-        - 2) 서버로부터 응답(데이터)을 받아 작업을 수행
-    - 이러한 비동기 웹 통신을 위한 라이브러리 중 하나가 Axios
+        - (1) 페이지 새로고침 없이 서버에 요청
 
-### **1. 비동기 적용하기**
+        - (2) 서버로부터 응답(데이터)을 받아 작업을 수행
+    - 이러한 비동기 웹 통신을 위한 라이브러리 중 하나가 Axios
+<br><br><br>
+
+---
+
+## **1. 비동기 적용하기**
 
 1. 사전 준비
     - 마지막 Django 프로젝트 준비하기 (M:N까지 진행한 프로젝트)
+
     - 가상 환경 생성 및 활성화, 패키지 설치
-    
+<br><br><br>
+
 2. 팔로우 (follow)
     - 각각의 템플릿에서 script 코드를 작성하기 위한 block tag 영역 작성
         
@@ -27,7 +34,7 @@
         </body>
         </html>
         ```
-        
+    <br>    
     
     - axios CDN 작성
         
@@ -40,7 +47,7 @@
           </script>
         {% endblock script %}
         ```
-        
+      <br>  
     
     - form 요소 선택을 위해 id 속성 지정 및 선택
     - 불필요해진 action과 method 속성은 삭제 (요청은 axios로 대체되기 때문)
@@ -60,7 +67,7 @@
           const form = document.querySelector('#follow-form')
         </script>
         ```
-        
+      <br>  
     
     - form 요소에 이벤트 핸들러 작성 및 submit 이벤트 취소
         
@@ -74,7 +81,7 @@
           })
         </script>
         ```
-        
+    <br>    
     
     - axios 요청 준비
         
@@ -92,12 +99,14 @@
           })
         </script>
         ```
-        
+      <br>  
     
     - 현재 axios로 POST 요청을 보내기 위해 필요한 것
-        - **1) url에 작성할 user pk는 어떻게 작성해야 할까?**
-        - 2) csrftoken은 어떻게 보내야 할까?
-    
+        - **(1) url에 작성할 user pk는 어떻게 작성해야 할까?**
+
+        - (2) csrftoken은 어떻게 보내야 할까?
+    <br><br>
+
     - url에 작성할 user pk 가져오기 (HTML → JavaScript)
         
         ```html
@@ -121,10 +130,11 @@
           })
         </script>
         ```
-        
+<br><br>        
     
 3. data-* attributes
     - 사용자 지정 데이터 특성을 만들어 임의의 데이터를 HTML과 DOM 사이에서 교환할 수 있는 방법
+
     - 사용 예시
         
         ```html
@@ -137,7 +147,7 @@
     - 모든 사용자 지정 데이터는 dataset 속성을 통해 사용할 수 있음
         
         [https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/data-*](https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/data-*) 
-        
+<br><br><br>        
     
 4. 팔로우
     - url 작성 마치기
@@ -157,24 +167,30 @@
         </script>
         
         ```
-        
+<br><br>        
     
 5. data-* attributes
     - 예를 들어 `data-test-value` 라는 이름의 특성을 지정했다면 JavaScript에서는 `element.dataset.testValue`로 접근할 수 있음
+
     - 속성명 작성 시 주의사항
         - 대소문자 여부에 상관없이 xml로 시작하면 안 됨
+
         - 세미콜론을 포함해서는 안됨
         - 대문자를 포함해서는 안됨
-    
+<br><br><br>
+
 6. 팔로우 (follow)
     - 현재 axios로 POST 요청을 보내기 위해 필요한 것
-        - 1) url에 작성할 user pk는 어떻게 작성해야 할까?
-        - **2) csrftoken은 어떻게 보내야 할까?**
-    
+
+        - (1) url에 작성할 user pk는 어떻게 작성해야 할까?
+
+        - **(2) csrftoken은 어떻게 보내야 할까?**
+    <br><br>
+
     - 먼저 hidden 타입으로 숨겨져있는 csrf 값을 가진 input 태그를 선택해야 함
         - [https://docs.djangoproject.com/en/3.2/ref/csrf/](https://docs.djangoproject.com/en/3.2/ref/csrf/)
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5d420cd-2213-4f29-b3f0-f43b88e0f2c4/Untitled.png)
+        ![3_4_1](./images/3_4_1.png)
         
         ```html
         <!-- accounts/profile.html -->
@@ -184,9 +200,10 @@
           const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
         </script>
         ```
-        
+    <br>    
     
     - AJAX로 csrftoken을 보내는 방법
+
         - [https://docs.djangoproject.com/en/3.2/ref/csrf/#setting-the-token-on-the-ajax-request](https://docs.djangoproject.com/en/3.2/ref/csrf/#setting-the-token-on-the-ajax-request)
             
             ```html
@@ -204,11 +221,13 @@
               })
             </script>
             ```
-            
+    <br>        
         
     - 팔로우 버튼을 토글하기 위해서는 현재 팔로우가 된 상태인지 여부 확인이  필요
+
     - axios 요청을 통해 받는 response 객체를 활용해 view 함수를 통해서 팔로우 여부를 파악할 수 있는 변수를 담아 JSON 타입으로 응답하기
-    
+    <br><br>
+
     - 팔로우 여부를 확인하기 위한 is_followed 변수 작성 및 JSON 응답
         
         ```python
@@ -236,7 +255,7 @@
             return redirect('accounts:profile', you.username)
         return redirect('accounts:login')
         ```
-        
+    <br>    
     
     - view 함수에서 응답한 is_followed를 사용해 버튼 토글하기
         
@@ -261,21 +280,23 @@
             })
         </script>
         ```
-        
+    <br>    
     
     - 결과 확인 (개발자 도구 - Network)
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d268f414-f7c9-43e9-bb32-c35203a14c72/Untitled.png)
+        ![3_4_2](./images/3_4_2.png)
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/842d5a7f-70da-404a-b653-f9ac87aa7a5a/Untitled.png)
-        
+        ![3_4_3](./images/3_4_3.png)
+<br><br><br>        
     
 7. [참고] XHR
     - “XMLHttpRequest”
+
     - AJAX 요청을 생성하는 JavaScript API
     - XHR의 메서드로 브라우저와 서버 간 네트워크 요청을 전송힐 수 있음
     - **Axios**는 손쉽게 XHR을 보내고 응답 결과를 Promise 객체로 반환해주는 라이브러리
-    
+<br><br><br>
+
 8. 팔로워 & 팔로잉 수 비동기 적용
     - 해당 요소를 선택할 수 있도록 span 태그와 id 속성 작성
         
@@ -291,7 +312,7 @@
             팔로잉 : <span id="followers-count">{{ person.followings.all|length }}</span>
           </div>
         ```
-        
+    <br>    
     
     - 직전에 작성한 span 태그를 각각 선택
         
@@ -312,7 +333,7 @@
             })
         </script>
         ```
-        
+    <br>    
     
     - 팔로워, 팔로잉 인원 수 연산은 view 함수에서 진행하여 결과를 응답으로 전달
         
@@ -333,7 +354,7 @@
             return redirect('accounts:profile', you.username)
         return redirect('accounts:login')
         ```
-        
+    <br>    
     
     - view 함수에서 응답한 연산 결과를 사용해 각 태그의 인원 수 값 변경하기
         
@@ -356,10 +377,11 @@
             })
         </script>
         ```
-        
+      <br>  
     
     - 최종 코드
         - HTML 코드
+
             
             ```html
             <!-- accounts/profile.html -->
@@ -455,12 +477,14 @@
               })
             </script>
             ```
-            
+<br><br>            
     
 9. 좋아요 (like)
     - 좋아요 비동기 적용은 “팔로우와 동일한 흐름 + **forEach()** & **querySelectorAll()**”
-        - index 페이지 각 게시글에 좋아요 버튼이 있기 때문
     
+        - index 페이지 각 게시글에 좋아요 버튼이 있기 때문
+<br><br><br>
+
 10. 최종 코드
     - HTML 코드
         
@@ -556,6 +580,6 @@
           })
         })
         ```
-        
+<br><br>        
 
 ---
