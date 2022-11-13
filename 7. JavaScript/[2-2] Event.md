@@ -2,44 +2,61 @@
 
 - 개요
     - **Event**란 프로그래밍하고 있는 시스템에서 일어나는 사건(action) 혹은 발생(occurrence)인데, 우리가 원한다면 그것들에 어떠한 방식으로 응답할 수 있도록 특정 시점을 시스템이 말해주는 것
+
         - 예를 들어 사용자가 웹 페이지의 버튼을 클릭한다면 우리는 클릭이라는 사건에 대한 결과를 응답 받기를 원할 수 있음
+
     - 클릭 말고도 웹에서는 각양각색의 Event가 존재
         - 키보드 키 입력, 브라우저 닫기, 데이터 제출, 텍스트 복사 등
+<br><br><br>
 
-### **1. Event Intro**
+---
+
+## **1. Event Intro**
 
 1. **Event** object
     - 네트워크 활동이나 사용자와의 상호작용 같은 사건의 발생을 알리기 위한 객체
+
     - Event 발생
         - 마우스를 클릭하거나 키보드를 누르는 등 사용자 행동으로 발생할 수도 있고
+
         - 특정 메서드를 호출하여 프로그래밍적으로도 만들어 낼 수 있음
     
     - DOM 요소는 Event를 받고(**”수신”**)
-    - 받은 Event를 **”처리”**할 수 있음
-        - Event 처리는 주로 **addEventListener()**라는 Event 처리기(Event handler)를 사용해 다양한 html 요소에 **”부착”**하게 됨
-    
+    - 받은 Event를 **”처리”** 할 수 있음
+        - Event 처리는 주로 **addEventListener()**라는 Event 처리기(Event handler)를 사용해 다양한 html 요소에 **”부착”** 하게 됨
+<br><br><br>
+
 2. Event handler - **addEventListener()**
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/503b7115-2c9e-406a-a442-80e30bff69aa/Untitled.png)
+    ![2_2_1](./images/2_2_1.png)
     
     - `EventTarget.addEventListener(type, listener[, options])`
         - 지정한 Event가 대상에 전달될 때마다 호출할 함수를 설정
+
         - Event를 지원하는 모든 객체(Element, Document, Window 등)를 대상(EventTarget)으로 지정 가능
-    
+    <br><br>
+
     - EventTarget.addEventListener(**type**, listener[, options])
         - `type`
             - 반응 할 Event 유형을 나타내는 대소문자 구분 문자열
+
             - 대표 이벤트
                 - `input`, `click`, `submit` …
+
                 - 다양한 이벤트 확인([https://developer.mozilla.org/en-US/docs/Web/Events](https://developer.mozilla.org/en-US/docs/Web/Events))
-    
+    <br><br>
+
     - EventTarget.addEventListener(type, **listener**[, options]) 🔥
         - `listener`
             - 지정된 타입의 Event를 수신할 객체
+
             - JavaScript function 객체(콜백 함수)여야 함
             - 콜백 함수는 발생한 Event의 데이터를 가진 Event 기반 객체를 유일한 매개변수로 받음
+<br><br><br>
 
-### **2. Event 실습**
+---
+
+## **2. Event 실습**
 
 1. 01_button.html
     - 버튼을 클릭하면 특정 변수 값 변경하기
@@ -70,8 +87,8 @@
         
     - 실행 결과
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/874f09a6-b875-430e-9de8-654011a4df46/Untitled.png)
-        
+        ![2_2_2](./images/2_2_2.png)
+<br><br><br>
     
 2. 02_input.html
     - input에 입력하면 입력 값을 실시간으로 출력하기
@@ -101,8 +118,8 @@
         
     - 실행 결과
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c44e2084-2132-48d7-b255-d027f82617ae/Untitled.png)
-        
+        ![2_2_3](./images/2_2_3.png)
+<br><br><br>        
     
 3. 03_button_input.html
     - input에 입력하면 입력 값을 실시간으로 출력하고 버튼을 클릭하면 출력된 값의 클래스를 토글하기
@@ -144,15 +161,20 @@
         
     - 실행 결과
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8591912e-3118-4ff9-8e99-7d7b7fdb39f2/Untitled.png)
-        
+        ![2_2_4](./images/2_2_4.png)
+<br><br><br>        
     
 4. addEventListener 정리
     - “~하면 ~한다.”
-        - “클릭하면, 경고창을 띄운다”
-        - “특정 Event가 발생하면, 할 일(콜백 함수)을 등록한다.”
 
-### **3. Event 취소**
+        - “클릭하면, 경고창을 띄운다”
+
+        - “특정 Event가 발생하면, 할 일(콜백 함수)을 등록한다.”
+<br><br><br>
+
+---
+
+## **3. Event 취소**
 
 - **event.preventDefault()** 🔥
     - 현재 Event의 기본 동작을 중단
@@ -160,8 +182,11 @@
     - HTML 요소의 기본 동작 예시 🔥
         - a 태그: 클릭 시 특정 주소로 이동
         - form 태그 : form 데이터 전송
+<br><br><br>
 
-### **4. Event 취소 실습**
+---
+
+## **4. Event 취소 실습**
 
 - 04_prevent.html
     - 웹 페이지 내용을 복사하지 못하도록 하기
@@ -184,16 +209,18 @@
         
     - 실행 결과
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b2e8ba5-bdaf-4ce4-89b8-6894cbffe8e1/Untitled.png)
-        
+        ![2_2_5](./images/2_2_5.png)
+<br><br><br>
 
-### **5. Event 종합 실습**
+---
+
+## **5. Event 종합 실습**
 
 1. 종합 실습 1
     - 05_lotto.html
         - 버튼을 클릭하면 랜덤 로또 번호 6개를 출력하기
             
-            ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc3ed5b4-6a4c-49ca-a31b-1d136672c809/Untitled.png)
+            ![2_2_6](./images/2_2_6.png)
             
         
         ```jsx
@@ -231,20 +258,22 @@
         })
         </script>
         ```
-        
+<br><br>        
     
 2. [참고] lodash
     - 모듈성, 성능 및 추가 기능을 제공하는 JavaScript 유틸리티 라이브러리
+
     - array, object 등 자료구조를 다룰 때 사용하는 유용하고 간편한 유틸리티 함수들을 제공
     - 함수 예시
         - `reverse`, `sortBy`, `range`, `random` …
     - [https://lodash.com/](https://lodash.com/)
-    
+<br><br><br>
+
 3. 종합 실습 2
     - 06_todo.html
         - CREATE, READ 기능을 충족하는 todo app 만들기
             
-            ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc260a25-c1ac-4aee-a6e0-5b58549ec2fb/Untitled.png)
+            ![2_2_7](./images/2_2_7.png)
             
         
         ```jsx
@@ -317,6 +346,6 @@
         </body>
         </html>
         ```
-        
+<br><br>        
 
 ---
