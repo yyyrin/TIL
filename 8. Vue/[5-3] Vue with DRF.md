@@ -1,6 +1,6 @@
 # **Vue with DRF (feat. CORS)**
 
-### **1. Article Read**
+## **1. Article Read**
 
 - 응답 받은 데이터 구조 확인
     
@@ -11,6 +11,8 @@
         - 1) id
         - 2) title
         - 3) content
+        
+<br><br><br>
 
 - `store/index.js` 수정
     
