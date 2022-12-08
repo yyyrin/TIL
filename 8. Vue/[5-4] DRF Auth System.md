@@ -50,6 +50,7 @@
     
     - settings.py에 작성하여야 할 설정
         - “기본적인 인증 절차를 어떠한 방식으로 둘 것이냐”를 설정하는 것
+
         - 예시의 2가지 방법 외에도 각 framework마다 다양한 인증 방식이 있음
     - 우리가 사용할 방법은 DRF가 기본으로 제공해주는 인증 방식 중 하나인 **TokenAuthentication**
     - 모든 상황에 대한 인증 방식을 정의하는 것이므로, 각 요청에 따라 다른 인증 방식을 거치고자 한다면 다른 방식이 필요
@@ -60,25 +61,34 @@
         
     - [참고] permission_classes
         - 권한 관련 설정
+
         - 권한 역시 특정 view 함수마다 다른 접근 권한을 요구할 수 있음
-    
+
+<br><br><br>
+
 2. 다양한 인증 방식
     - `BasicAuthentication`
+
         - 가장 기본적인 수준의 인증 방식
+
         - 테스트에 적합
     - `SessionAuthentication`
         - Django에서 사용하였던 session 기반의 인증 시스템
+
         - DRF와 Django의 session 인증 방식은 보안적 측면을 구성하는 방법에 차이가 있음
     - `RemoteUserAuthentication`
         - Django의 Remote user 방식을 사용할 때 활용하는 인증 방식
     
     - `TokenAuthentication`
         - 매우 간단하게 구현 할 수 있음
+
         - 기본적인 보안 기능 제공
         - 다양한 외부 패키지가 있음
     - 🔥 `settings.py`에서  `DEFAULT_AUTHENTICATION_CLASSES`를 정의
         - `TokenAuthentication` 인증 방식을 사용할 것임을 명시
-    
+
+<br><br><br>
+
 3. TokenAuthentication 사용 방법
     - INSTALLED_APPS에 `rest_framework.authtoken` 등록
         
@@ -88,7 +98,9 @@
             'rest_framework.authtoken'
         ]
         ```
-        
+
+    <br>
+
     - 각 User 마다 고유 Token 생성
         
         ```python
@@ -97,10 +109,12 @@
         token = Token.objects.create(user=...)
         print(token.key)
         ```
-        
+
+    <br>    
     
     - 생성한 Token을 각 User에게 발급
         - User는 발급 받은 Token을 요청과 함께 전송
+
         - Token을 통해 User 인증 및 권한 확인
     - Token 발급 방법
         
@@ -109,45 +123,62 @@
             token = Token.objects.create(user=...)
             return Response({ 'token': token.key })
         ```
-        
+    <br>    
     
     - User는 발급 받은 Token을 headers에 담아 요청과 함께 전송
         - 단, 반드시 **Token** 문자열 함께 삽입
+
             - 삽입해야 할 문자열은 각 인증 방식 마다 다름 (ex. Bearer, Auth, JWT 등)
         - 주의) Token 문자열과 발급받은 실제 token 사이를 **‘ ‘(공백)**으로 구분
     - Authorization HTTP headers 작성 방법
         - `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`
-    
+
+<br><br><br>
+
+
 4. 토큰 생성 및 관리 문제점
     - 기본 제공 방식에서 고려해야할 사항들
-        - 1) Token 생성 시점
-        - 2) 생성한 Token 관리 방법
-        - 3) User와 관련된 각종 기능 관리 방법
+
+        - (1) Token 생성 시점
+
+        - (2) 생성한 Token 관리 방법
+        - (3) User와 관련된 각종 기능 관리 방법
             - 회원가입
+
             - 로그인
             - 회원 정보 수정
             - 비밀 번호 변경 등 …
 
-### **3. dj-rest-auth**
+<br><br><br>
+
+---
+
+## **3. dj-rest-auth**
 
 1. Dj-Rest-Auth
     - 회원가입, 인증(소셜미디어 인증 포함), 비밀번호 재설정, 사용자 세부 정보 검색, 회원 정보 수정 등을 위한 REST API end point 제공
+
     - 주의) django-rest-auth는 더 이상 업데이트를 지원하지 않음 → **dj-rest-auth** 사용
         
         ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7238d0ff-5dcc-4d98-a8d4-74014d8f00ad/Untitled.png)
         
     - [https://github.com/iMerica/dj-rest-auth](https://github.com/iMerica/dj-rest-auth)
-    
+
+<br><br><br>
+
 2. dj-rest-auth 사용 방법
-    - 1) 패키지 설치
-    - 2) App 등록
-    - 3) url 등록
+    - (1) 패키지 설치
+
+    - (2) App 등록
+    - (3) url 등록
         
         ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1395e76-8ca6-4ab2-bb56-539d4e3c2964/Untitled.png)
-        
+
+<br><br><br>        
     
 3. 시작하기 전에…
     - 시작하기 전, `auth.User`를 accounts.User로 변경 필요
+
     - `auth.User`로 설정된 DB 제거
         
         ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7eee80cc-cc96-4609-a0ec-5670b501d817/Untitled.png)
@@ -167,9 +198,11 @@
         AUTH-USER_MODEL = 'accounts.User'
         ```
         
-    
+<br><br>
+
 4. dj-rest-auth 사용하기
     - `dj-rest-auth` 설치
+    
         - `python install dj-rest-auth`
     - `my_api/settings.py` 주석 해제
         
