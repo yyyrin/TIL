@@ -248,7 +248,8 @@
             
             ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2490632-4ce0-4f5d-8b3a-4f69b60e729a/Untitled.png)
             
-    
+<br><br><br>
+
 5. Registration
     - Registration 기능을 사용하기 위해 추가 기능 등록 및 설치 필요
         - `dj-rest-auth`는 소셜 회원가입을 지원한다.
