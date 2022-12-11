@@ -2,19 +2,28 @@
 
 - 개요
     - Front-end 개발이란 무엇인가
+
     - Front-end framework란 무엇인가
     - Vue를 배우는 이유
     - Vue 기초 문법
 
-### **1. Front-end Development**
+<br><br><br>
+
+---
+
+## **1. Front-end Development**
 
 1. 개요
     - 우리가 앞으로 할 일은 JavaScript를 활용한 Front-end 개발
+
     - Back-end 개발은 Back-end 개발에 특화된 Django로 진행
     - Front-end 개발은?
         - **Vue.js**
+
         - Vue.js === JavaScript Front-end Framework
-    
+
+<br><br><br>
+
 2. Front-end Framework
     - Front-end(FE) 개발이란?
         - 사용자에게 보여주는 화면 만들기
