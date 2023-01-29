@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    // 뒤로가기 버튼튼
+    // 뒤로가기 버튼
    override fun onBackPressed() {
         Log.d("MainActivity", "backbutton")
 
