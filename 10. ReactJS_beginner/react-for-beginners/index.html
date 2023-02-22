@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- React JS : 어플리케이션이 아주 interactive하도록 만들어주는 library / 엔진 / interactive한 UI 만들 수 있게 함 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- react-dom : library, 또는 package / 모든 React element들을 HTML body에 둘 수 있도록 함 -->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root")
+    const h3 = React.createElement("h3", 
+      {
+        id: "title",
+        onMouseEnter: () => console.log('mouse enter'),
+      }, "Hello I am span")
+    // const의 이름은 HTML의 태그 이름과 반드시 일치할 필요 x
+    const btn = React.createElement(
+      "button", 
+      {
+        onClick: () => console.log('im clicked'),
+        style: {
+          backgroundColor: "tomato",
+        },
+      }, 
+      "Click me"
+    )
+    // span과 button을 모두 render하는 방법 -> div 생성 후 render
+    const container = React.createElement("div", null, [h3, btn])
+    // render : React element를 가지고 HTML로 만들어 배치 / 사용자에게 보여준다
+    ReactDOM.render(container, root)
+  </script>
+</html>
+
+<!-- 
+- vanilla JS : HTML -> Javascript
+- React JS : Javascript -> HTML
+
+[ React JS 핵심 ]
+- Javascript + React JS 사용하여 element 생성할 때, React JS가 element 생성
+- React JS는 업데이트가 필요한 element를 업데이트할 것
+- React JS가 결과물인 HTML을 업데이트가 필요할 때 업데이트할 수 있음
+-> React JS는 유저에게 보여질 내용을 컨트롤할 수 있음
+
+- addEventListener 반복하는 것 대신, property에서 event 등록 가능!
+ -->
