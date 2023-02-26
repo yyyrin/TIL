@@ -16,52 +16,25 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    // 1) 어플리케이션이 시작하면 counter = 0
-    let counter = 0;
+    function App() {
+      // 데이터 이름 : 원하는대로 ex) counter
+      // modifier : set + 데이터 이름 ex) setCounter
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        // counter = counter + 1;
+        // console.log(counter);
+        setCounter(counter + 1);
+      };
 
-    // 6) countUp 함수는 counter를 증가시키고 다시 render 함수 호출
-    function countUp() {
-      counter = counter + 1;
-      // ReactDOM.render(<Container />, root);
-      render();
-    }
-
-    // 3) render 함수는 Container 컴포넌트를 root에 담는다.
-    // 7) render 함수가 호출되면 똑같은 과정 반복
-    function render() {
-      ReactDOM.render(<Container />, root);
-    }
-
-    // 4) 어플이 막 시작됐을 때의 Container는 Total click을 가지고 있고 counter와 연결되어 있음
-    // counter의 초기값은 0
-    // 5) event listener를 등록 -> 버튼을 클릭할 때, countUp 함수 호출
-    // 8) Container 컴포넌트는 업데이트된 counter를 가진다. (counter +1)
-    function Container() {
       return (
+        // 사용자가 보게 될 컴포넌트
         <div>
           <h3>Total clicks: {counter}</h3>
-          <button onClick={countUp}>Click me</button>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
 
-    // 2) render 함수 실행
-    render();
+    ReactDOM.render(<App />, root);
   </script>
 </html>
-
-<!-- 
-<Vanilla JS vs. React JS>
-- Vanilla JS
-  - 구글 Chrome이나 Brave가 요소들이 업데이트되고 있는 걸 바로바로 보여줌
-  
-- React JS
-  - UI에서 바뀐 부분만 업데이트
-  - 이전에 렌더링된 컴포넌트는 어떤 거였는지 확인
-  - 렌더링될 컴포넌트 어떤건지 보고 다른 부분만 파악
-
-React JS 장점
-- interactive한 어플 만들 수 있음
-- 여러가지 요소들을 리렌더링하려고 해도, 전부 다 새로 생성되지 X
-- 바뀐 부분만 생성
- -->
