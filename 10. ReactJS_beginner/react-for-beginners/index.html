@@ -4,37 +4,67 @@
     <div id="root"></div>
   </body>
 
-  <!-- React JS : 어플리케이션이 아주 interactive하도록 만들어주는 library / 엔진 / interactive한 UI 만들 수 있게 함 -->
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-
-  <!-- react-dom : library, 또는 package / 모든 React element들을 HTML body에 둘 수 있도록 함 -->
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-
-  <!-- Babel : JSX -> 윈도우가 이해할 수 있도록 형식 변환 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    const root = document.getElementById("root");
-
-    function App() {
-      // 데이터 이름 : 원하는대로 ex) counter
-      // modifier : set + 데이터 이름 ex) setCounter
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        // counter = counter + 1;
-        // console.log(counter);
-        setCounter(counter + 1);
+    //
+    function MinutesToHours() {
+      const [amount, setAmount] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => setAmount(0);
+      const onInverted = () => {
+        reset();
+        setInverted((current) => !current);
       };
 
       return (
-        // 사용자가 보게 될 컴포넌트
         <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={inverted ? amount * 60 : amount}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+              disabled={inverted}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={inverted ? amount : Math.round(amount / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+              disabled={!inverted}
+              onChange={onChange}
+            />
+          </div>
+
+          <button onClick={reset}>Reset</button>
+          <button onClick={onInverted}>
+            {inverted ? "Turn back" : "Invert"}
+          </button>
         </div>
       );
     }
 
+    function App() {
+      return (
+        <div>
+          <h1>Super Conerter</h1>
+        </div>
+      );
+    }
+
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
 </html>
