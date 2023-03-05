@@ -6,16 +6,54 @@
 
   <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  <!-- PropTypes -->
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    // 니꼬쌤이 말하는 component : JSX를 반환하는 function
-    function SaveBtn() {
-
-    }
-    function App() {
+    // 정의되지 않은 변수에 관한 기본값을 줄 수 있음 (by JavaScript)
+    function Btn({ text, fontSize = 16 }) {
+      console.log(text, "was rendered");
       return (
-        <div></div>
+        <button
+          // onClick={changeValue}
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+
+    // React Memo
+    // memorized version의 Btn
+    // const MemorizedBtn = React.memo(Btn)
+
+    // 1) ReactJS에게 prop 타입 무엇인지 알려주기
+    // 형식 -> prop 이름: type
+    // console 창에서 경고 문구 볼 수 있음
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+      // 두 prop들만을 정확히 갖고 render될 것이라는 걸 확실히 하고 싶다면 .isRequired 붙이기
+
+      
+    }
+
+    function App() {
+      // const [value, setValue] = React.useState("Save Changes");
+      // const changeValue = () => setValue("Revert Change");
+      return (
+        <div>
+          <Btn text="Save Changes" fontSize={18} />
+          <Btn text={"Continue"} />
+        </div>
       );
     }
 
