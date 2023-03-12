@@ -1,36 +1,36 @@
 import styled from "styled-components";
 
-// 1) style
-// ``(back tick) 내부에 CSS 코드 쓰기
 const Father = styled.div`
   display: flex;
 `;
 
-const BoxOne = styled.div`
-  background-color: teal;
+// 2) prop 받기
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `;
 
-const BoxTwo = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
+// const Circle = styled.div`
+//   background-color: ${(props) => props.bgColor};
+//   width: 100px;
+//   height: 100px;
+//   border-radius: 50px;
+// `;
+// -> 코드 중복되는 문제 발생
+
+// Box의 모든 속성을 들고와서 추가로 코드를 더할 것이다.
+const Circle = styled(Box)`
+  border-radius: 50px;
 `;
 
-//  컴포넌트의 이름 정할 수 있음
-const Text = styled.h1`
-  color: white;
-`;
-
-// 2) 구현 부분 - style 없음
 function App() {
   return (
     <Father>
-      <BoxOne>
-        <Text>Hello</Text>
-      </BoxOne>
-      <BoxTwo />
+      {/* 1) prop 보내기 */}
+      <Box bgColor="teal" />
+      <Circle bgColor="whitesmoke" />
+      {/* Circle은 bgColor를 통해 설정 변경도 가능 */}
     </Father>
   );
 }
